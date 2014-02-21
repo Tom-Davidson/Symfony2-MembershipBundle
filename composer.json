@@ -1,0 +1,24 @@
+{
+    "name": "tomdavidson/membershipbundle",
+    "type": "symfony-bundle",
+    "description": "A bundle for managing a membership list.",
+    "keywords": ["membership", "tomdavidson"],
+    "homepage": "https://github.com/Tom-Davidson/Symfony2-MembershipBundle",
+    "license": "GPL-3",
+    "authors": [
+        {
+            "name": "Tom Davidson",
+            "email": "tom@davidson.me.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/symfony": "2.1.*",
+        "doctrine/doctrine-bundle": "*"
+    },
+    "autoload": {
+        "psr-0": { "TomDavidson\\MembershipBundle": "" }
+    },
+    "target-dir": "TomDavidson/MembershipBundle"
+}
