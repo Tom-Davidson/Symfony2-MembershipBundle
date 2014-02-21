@@ -1,4 +1,10 @@
 {% extends "::base.html.twig" %}
-{% block content %}
-Hi World!
+
+{% block title %}Members{% endblock %}
+
+{% block body %}
+Members:<br /><br />
+{% for member in members %}
+{{ member.name }}<br />
+{% endfor %}
 {% endblock %}
