@@ -24,3 +24,6 @@ TomDavidsonMembershipBundle:
     resource: "@TomDavidsonMembershipBundle/Controller/"
     type:     annotation
     prefix:   /members
+
+Create the DB:
+`php app/console doctrine:schema:create`
