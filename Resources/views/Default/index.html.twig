@@ -3,8 +3,19 @@
 {% block title %}Members{% endblock %}
 
 {% block body %}
-Members:<br /><br />
+		<h2>Members:</h2>
+		<ul>
 {% for member in members %}
-{{ member.name }}<br />
+			<li>
+				{{ member.name }}
+	{% if member.organisation %}
+				of {{ member.organisation }}
+	{% endif %}
+			</li>
 {% endfor %}
+		</ul>
+		<form action="{{ path('members_home') }}" method="post" {{ form_enctype(form) }}>
+		{{ form_widget(form) }}
+		<div><label for="submit">&nbsp;</label><input type="submit" name="submit" value="Send" /></div>
+		</form>
 {% endblock %}

@@ -1,0 +1,48 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Members Admin Area{% endblock %}
+
+{% block body %}
+		<h2>Members:</h2>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Organisation</th>
+				<th>Email</th>
+				<th>Status</th>
+				<th>Sponsors</th>
+				<th>Actions</th>
+			</tr>
+{% for member in members %}
+			<tr>
+				<td>{{ member.name }}</td>
+				<td>{{ member.organisation }}</td>
+				<td>{{ member.email }}</td>
+				<td>
+	{% if member.status == 'A' %}
+					Active
+	{% elseif member.status == 'U' %}
+					Unauthorised
+	{% elseif member.status == 'I' %}
+					Inactive
+	{% endif %}
+				</td>
+				<td>{{ member.sponsors }}</td>
+				<td>
+	{% if member.status == 'A' %}
+					<a href="{{ path('members_admin_deactivate', { 'id': member.id } ) }}" title="Deactivate Membership">[Deactivate]</a>
+	{% elseif member.status == 'U' %}
+					<a href="{{ path('members_admin_authorise', { 'id': member.id } ) }}" title="Authorise Membership">[Authorise]</a>
+	{% elseif member.status == 'I' %}
+					<a href="{{ path('members_admin_authorise', { 'id': member.id } ) }}" title="Reinstate Membership">[Reinstate]</a>
+	{% endif %}
+					<a href="{{ path('members_admin_delete', { 'id': member.id } ) }}" title="Delete Member">[Delete]</a>
+				</td>
+			</tr>
+{% endfor %}
+		</table>
+		<br /><br />
+		<textarea cols="50" rows="5">{% for member in members %}{% if member.email and member.status == 'A' %}
+{{ member.name }} <{{ member.email }}>;
+{% endif %}{% endfor %}</textarea>
+{% endblock %}
