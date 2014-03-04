@@ -1,9 +1,9 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}Members{% endblock %}
+{% block title %}Transport Modellers Forum - Members{% endblock %}
 
 {% block body %}
-		<h2>Members:</h2>
+		<h2>Current Members</h2>
 		<ul>
 {% for member in members %}
 			<li>
@@ -14,8 +14,10 @@
 			</li>
 {% endfor %}
 		</ul>
+		<h2>Apply for Membership</h2>
 		<form action="{{ path('members_home') }}" method="post" {{ form_enctype(form) }}>
 		{{ form_widget(form) }}
-		<div><label for="submit">&nbsp;</label><input type="submit" name="submit" value="Send" /></div>
+		<div><label for="submit">&nbsp;</label><input type="submit" name="submit" value="Submit Application" /></div>
 		</form>
+		<p>Once you have completed the form please inform your sponsors and ask them to contact an administrator to approve your application.</p>
 {% endblock %}

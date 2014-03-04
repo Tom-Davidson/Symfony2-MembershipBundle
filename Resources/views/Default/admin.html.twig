@@ -1,9 +1,9 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}Members Admin Area{% endblock %}
+{% block title %}Transport Modellers Forum - Admin Area{% endblock %}
 
 {% block body %}
-		<h2>Members:</h2>
+		<h2>All Members</h2>
 		<table>
 			<tr>
 				<th>Name</th>
@@ -42,7 +42,8 @@
 {% endfor %}
 		</table>
 		<br /><br />
-		<textarea cols="50" rows="5">{% for member in members %}{% if member.email and member.status == 'A' %}
+		<h2>All Members' Email Addresses</h2>
+		<textarea cols="80" rows="10">{% for member in members %}{% if member.email and member.status == 'A' %}
 {{ member.name }} <{{ member.email }}>;
 {% endif %}{% endfor %}</textarea>
 {% endblock %}

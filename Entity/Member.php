@@ -154,6 +154,7 @@ DROP TABLE IF EXISTS `members`;
 CREATE TABLE IF NOT EXISTS `members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `jobtitle` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `organisation` varchar(254) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(254) COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `password` varchar(254) COLLATE utf8_unicode_ci NULL DEFAULT NULL,
@@ -163,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `joined` DATETIME COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+ALTER TABLE `members` ADD UNIQUE (`email`);
 ALTER TABLE `website_transportmodeller_com`.`members` ADD INDEX ( `status` );
 INSERT INTO `website_transportmodeller_com`.`members` (`id`, `name`, `organisation`, `email`, `password`, `status`, `sponsor1_id`, `sponsor2_id`, `joined`) VALUES ('1', 'Tom Davidson', 'Test Organisation', 'tom@testdomain.com', NULL, 'A', 1, 1, NOW());
 

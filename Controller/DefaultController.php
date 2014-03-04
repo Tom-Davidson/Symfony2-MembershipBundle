@@ -28,13 +28,13 @@ class DefaultController extends Controller
 				'class'			=> 'TomDavidsonMembershipBundle:Member',
 				'query_builder'	=> function($repository) { return $repository->createQueryBuilder('p')->where('p.status=:status')->setParameter('status', 'A')->orderBy('p.name', 'ASC'); },
 				'property'		=> 'name',
-				'label'			=> 'Sponsor'
+				'label'			=> 'Sponsor 1'
 			))
 			->add('sponsor2',		'entity',	array(
 				'class'			=> 'TomDavidsonMembershipBundle:Member',
 				'query_builder'	=> function($repository) { return $repository->createQueryBuilder('p')->where('p.status=:status')->setParameter('status', 'A')->orderBy('p.name', 'ASC'); },
 				'property'		=> 'name',
-				'label'			=> 'Sponsor'
+				'label'			=> 'Sponsor 2'
 			))
 			->getForm();
 		// Form handling
